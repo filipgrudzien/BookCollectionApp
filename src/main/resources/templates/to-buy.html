@@ -24,10 +24,10 @@
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/}">Home<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" th:href="@{/collection/simpleall}">My books</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" th:href="@{/tobuy/simpleall}">To-buy list</a>
             </li>
             <li class="nav-item">
@@ -41,25 +41,7 @@
     store page
 </div>
 
-<th:block th:with="partitions=${T(org.apache.commons.collections4.ListUtils).partition(books, 3)}">
-
-    <div class="row" th:each="partition: ${partitions}">
-
-        <div class="blok text-center col-sm-4 col-md-4 col-lg-4" th:each="book: ${partition}">
-
-            <div class="thumbnail">
-                <img th:src="${book.cover}"/>
-            </div>
-            <p class="set-pad" th:text="${book.title}"></p>
-            <p class="set-pad" th:text="${book.author}"></p>
-
-        </div>
-
-    </div>
-
-</th:block>
-
-<!--<div class="text-center centred-content">
+<div class="text-center centred-content">
     <table class="fixed-margins">
         <tbody>
         <tr th:each="book : ${books}">
@@ -75,8 +57,6 @@
         </tbody>
     </table>
 </div>
--->
-
 
 <footer class="page-footer font-small for-footer text-center updowncolors">
     <div class="text-center centred-content">

@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "book")
-public class Book {
+public class OwnedBook {
 
     @Id
     @Column(name = "id")
@@ -34,7 +34,7 @@ public class Book {
     @Column(name = "cover")
     private String cover;
 
-    public Book() {}
+    public OwnedBook() {}
 
     public int getId() {
         return id;
@@ -102,7 +102,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "OwnedBook{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +

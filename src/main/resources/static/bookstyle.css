@@ -55,3 +55,25 @@ table {
     width: 150px;
     object-fit:scale-down;
 }
+
+.possibilities {
+    list-style-type: none;
+    padding-top: 15px;
+}
+
+#main-content {
+    padding: 40px 0px 40px 0px;
+}
+
+nav {
+    padding-bottom: 20px;
+}
+
+.thumbnail img {
+    height:250px;
+    width:35%;
+}
+
+.blok {
+    display: inline-block;
+}

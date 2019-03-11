@@ -7,12 +7,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class StoreController {
+@RequestMapping("/collection")
+public class OwnedBooksController {
 
     @Autowired
     private BookService bookService;
 
-    @RequestMapping("/store")
+    @RequestMapping("/simpleall")
     public String showStorePage(Model model){
         model.addAttribute("books", bookService.getAllBooks());
         return "store-view";

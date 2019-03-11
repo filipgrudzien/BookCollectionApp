@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" type="text/css" href="/bookstorestyle.css">
+    <link rel="stylesheet" type="text/css" href="/bookstyle.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -15,7 +15,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Book Store</a>
+        <a class="navbar-brand" href="#">My Books</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,16 +25,45 @@
                     <a class="nav-link" th:href="@{/}">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/store}">Store</a>
+                    <a class="nav-link" th:href="@{/collection/simpleall}">My books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/tobuy/simpleall}">To-buy list</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/aboutme}">About me</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <div>
-
-        main page
-
+    <div id="main-content" class="container-fluid">
+        <div class="row">
+            <div class="offset-sm-2 offset-md-2 offset-lg-2"></div>
+            <div class="col-sm-8 col-md-8 col-lg-8 text-center">
+                <h1>Welcome to your personal book collection manager</h1>
+            </div>
+            <div class="offset-sm-2 offset-md-2 offset-lg-2"></div>
+        </div>
+        <div class="row">
+            <div class="offset-sm-2 offset-md-2 offset-lg-2"></div>
+            <div class="col-sm-8 col-md-8 col-lg-8 text-center">
+                <h2>which allows You to:</h2>
+            </div>
+            <div class="offset-sm-2 offset-md-2 offset-lg-2"></div>
+        </div>
+        <div class="row">
+            <div class="offset-sm-4 offset-md-4 offset-lg-4"></div>
+            <div class="col-sm-4 col-md-4 col-lg-4 text-center">
+                <ul class="list-group possibilities">
+                    <li class="list-group-item">manage books owned by You</li>
+                    <li class="list-group-item">add books to buy</li>
+                    <li class="list-group-item">view your books by categories</li>
+                    <li class="list-group-item">say some words about yourself</li>
+                </ul>
+            </div>
+            <div class="offset-sm-4 offset-md-4 offset-lg-4"></div>
+        </div>
     </div>
 
     <footer class="page-footer font-small for-footer text-center updowncolors">
@@ -48,5 +77,6 @@
             © 2019 Copyright: Filip Grudzień spring bookstore app.
         </div>
     </footer>
+
 </body>
 </html>

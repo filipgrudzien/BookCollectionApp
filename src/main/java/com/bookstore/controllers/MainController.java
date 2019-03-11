@@ -12,4 +12,9 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("/aboutme")
+    public String showAboutMePage(){
+        return "about-me";
+    }
+
 }
