@@ -45,14 +45,12 @@
 
     <div class="row" th:each="partition: ${partitions}">
 
-        <div class="blok text-center col-sm-4 col-md-4 col-lg-4" th:each="book: ${partition}">
-
+        <div class="blok text-center col-sm-4 col-md-4 col-lg-4 col-centered" th:each="book: ${partition}">
             <div class="thumbnail">
                 <img th:src="${book.cover}"/>
+                <p class="title" th:text="${book.title}"></p>
+                <p class="author" th:text="${book.author}"></p>
             </div>
-            <p class="set-pad" th:text="${book.title}"></p>
-            <p class="set-pad" th:text="${book.author}"></p>
-
         </div>
 
     </div>

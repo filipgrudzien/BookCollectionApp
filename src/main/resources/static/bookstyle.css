@@ -70,10 +70,32 @@ nav {
 }
 
 .thumbnail img {
-    height:250px;
-    width:35%;
+    height: 250px;
+    width: 35%;
 }
 
 .blok {
     display: inline-block;
+    margin: 10px 0px 10px 0px;
+}
+
+.back {
+    background-color: #C0C0C0;
+}
+
+.book-display {
+    padding: 15px;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.title {
+    padding: 5px 0px 5px 0px;
+}
+
+.author {
+    padding: 0px 0px 5px 0px;
 }
