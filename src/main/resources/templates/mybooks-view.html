@@ -9,9 +9,9 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
           integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>store-page</title>
 </head>
 <body class="body-color">
@@ -26,10 +26,10 @@
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/}">Home<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" th:href="@{/collection/simpleall}">My books</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" th:href="@{/tobuy/simpleall}">To-buy list</a>
             </li>
             <li class="nav-item">
@@ -39,25 +39,26 @@
     </div>
 </nav>
 
-<div>
-    store page
-</div>
+<div class="container view-margin">
+    <th:block th:with="partitions=${T(org.apache.commons.collections4.ListUtils).partition(books, 3)}">
 
-<div class="text-center centred-content">
-    <table class="fixed-margins">
-        <tbody>
-        <tr th:each="book : ${books}">
-            <td class="set-pad" th:text="${book.id}"></td>
-            <td class="set-pad" th:text="${book.title}"></td>
-            <td class="set-pad" th:text="${book.author}"></td>
-            <td class="set-pad" th:text="${book.price}"></td>
-            <td class="set-pad" th:text="${book.avaliability}"></td>
-            <td class="set-pad" th:text="${book.pages}"></td>
-            <td class="set-pad" th:text="${book.publication_date}"></td>
-            <td class="set-pad"><img class="img-fluid img-sizer" th:src="${book.cover}"></td>
-        </tr>
-        </tbody>
-    </table>
+        <div class="row" th:each="partition: ${partitions}">
+
+            <div class="blok text-center col-sm-4 col-md-4 col-lg-4 col-centered" th:each="book: ${partition}">
+                <div class="thumbnail">
+                    <a th:href="@{detailed/{id}(id=${book.id})}"><img th:src="${book.cover}"/></a>
+                    <div class="dtofields">
+                        <p>Title:</p><p class="title" th:text="${book.title}"></p>
+                    </div>
+                    <div class="dtofields">
+                        <p>Author:</p><p class="author" th:text="${book.author}"></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </th:block>
 </div>
 
 <footer class="page-footer font-small for-footer text-center updowncolors">

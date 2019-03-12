@@ -1,18 +1,19 @@
-package com.bookstore.entities;
+package com.bookstore.DTO;
 
 // to show limited data in books views
 
 public class BookDTO {
 
+    private int id;
+
     private String title;
 
     private String author;
 
-    private float price;
+    private String cover;
 
-    private int avaliability;
-
-    public BookDTO() {}
+    public BookDTO() {
+    }
 
     public String getTitle() {
         return title;
@@ -30,29 +31,29 @@ public class BookDTO {
         this.author = author;
     }
 
-    public float getPrice() {
-        return price;
+    public String getCover() {
+        return cover;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
+    public void setCover(String cover) {
+        this.cover = cover;
     }
 
-    public int getAvaliability() {
-        return avaliability;
+    public int getId() {
+        return id;
     }
 
-    public void setAvaliability(int avaliability) {
-        this.avaliability = avaliability;
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
     public String toString() {
         return "BookDTO{" +
-                "title='" + title + '\'' +
+                "id=" + id +
+                ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
-                ", price=" + price +
-                ", avaliability=" + avaliability +
+                ", cover='" + cover + '\'' +
                 '}';
     }
 }

@@ -19,7 +19,7 @@
 }
 
 .updowncolors {
-    background-color: #628CFF;
+    background-color: #343a40;
 }
 
 .footer {
@@ -69,14 +69,30 @@ nav {
     padding-bottom: 20px;
 }
 
-.thumbnail img {
+.thumbnail a img {
     height: 250px;
-    width: 35%;
+    width: 48%;
+}
+
+.data-detailed {
+    margin: 90px 0px 5px 0px;
+    width: 200px;
+    height: 300px;
+}
+
+.detailed-img {
+    margin: 35px 0px 5px 0px;
+    width: 200px;
+    height: 300px;
 }
 
 .blok {
     display: inline-block;
     margin: 10px 0px 10px 0px;
+}
+
+.blok-detailed {
+    display: inline-block;
 }
 
 .back {
@@ -93,9 +109,32 @@ nav {
 }
 
 .title {
-    padding: 5px 0px 5px 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0;
 }
 
 .author {
-    padding: 0px 0px 5px 0px;
+    padding-bottom: 5px;
+}
+
+.body-color {
+     background-color: #E8E8E8 !important;
+}
+
+.for-buttons {
+    color: black;
+}
+
+.footer-font {
+    color: white;
+}
+
+.view-margin {
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+
+.dtofields {
+    display: inline !important;
 }

@@ -18,7 +18,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">My Books</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -26,10 +27,10 @@
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/}">Home<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" th:href="@{/collection/simpleall}">My books</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" th:href="@{/tobuy/simpleall}">To-buy list</a>
             </li>
             <li class="nav-item">
@@ -39,25 +40,33 @@
     </div>
 </nav>
 
-<div>
-    store page
-</div>
-
-<div class="text-center centred-content">
-    <table class="fixed-margins">
-        <tbody>
-        <tr th:each="book : ${books}">
-            <td class="set-pad" th:text="${book.id}"></td>
-            <td class="set-pad" th:text="${book.title}"></td>
-            <td class="set-pad" th:text="${book.author}"></td>
-            <td class="set-pad" th:text="${book.price}"></td>
-            <td class="set-pad" th:text="${book.avaliability}"></td>
-            <td class="set-pad" th:text="${book.pages}"></td>
-            <td class="set-pad" th:text="${book.publication_date}"></td>
-            <td class="set-pad"><img class="img-fluid img-sizer" th:src="${book.cover}"></td>
-        </tr>
-        </tbody>
-    </table>
+<div class="container">
+    <div class="row">
+        <div class="offset-sm-2 offset-md-2 offset-lg-2"></div>
+        <div class="text-center col-sm-4 col-md-4 col-lg-4">
+            <img class="detailed-img" th:src="${book.cover}"/>
+        </div>
+        <div class="data-detailed blok-detailed text-center col-sm-2 col-md-2 col-lg-2">
+                <p>Title:</p>
+                <p>Author:</p>
+                <p>Price:</p>
+                <p>Pages:</p>
+                <p>Publication date:</p>
+        </div>
+        <div class="blok-detailed data-detailed text-center col-sm-2 col-md-2 col-lg-2">
+                <p th:text="${book.title}"></p>
+                <p th:text="${book.author}"></p>
+                <p th:text="${book.price}"></p>
+                <p th:text="${book.pages}"></p>
+                <p th:text="${book.publication_date}"></p>
+            <!--<p class="title" th:text="${book.title}"></p>
+            <p class="title" th:text="${book.author}"></p>
+            <p class="title" th:text="${book.price}"></p>
+            <p class="title" th:text="${book.pages}"></p>
+            <p class="title" th:text="${book.publication_date}"></p>-->
+        </div>
+        <div class="offset-sm-2 offset-md-2 offset-lg-2"></div>
+    </div>
 </div>
 
 <footer class="page-footer font-small for-footer text-center updowncolors">
