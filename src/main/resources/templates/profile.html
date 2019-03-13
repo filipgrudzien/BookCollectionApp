@@ -9,9 +9,9 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
           integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>store-page</title>
 </head>
 <body class="body-color">
@@ -26,35 +26,57 @@
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/}">Home<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" th:href="@{/collection/simpleall}">My books</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/tobuy/simpleall}">To-buy list</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" th:href="@{/user/profile}">My profile</a>
             </li>
         </ul>
     </div>
 </nav>
 
-<div class="container view-margin">
-    <th:block th:with="partitions=${T(org.apache.commons.collections4.ListUtils).partition(books, 3)}">
-
-        <div class="row" th:each="partition: ${partitions}">
-
-            <div class="blok text-center col-sm-4 col-md-4 col-lg-4 col-centered" th:each="book: ${partition}">
-                <div class="thumbnail">
-                    <a th:href="@{detailed/{id}(id=${book.id})}"><img th:src="${book.cover}"/></a>
-                       <p class="title" th:text="${book.title}"></p>
-                       <p class="author" th:text="${book.author}"></p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="offset-sm-1 offset-md-1 offset-lg-1"></div>
+        <div class="usercols col-sm-5 col-md-5 col-lg-5">
+            <div th:object="${user}" class="shadow p-3 mb-5 bg-white rounded">
+                <div class="text-center">
+                    <img th:src="${user.photo}" class="photo-scale rounded-circle">
+                    <p th:text="${user.nationality}" class="photo-subtitle"></p>
+                </div>
+                <div class="items">
+                    <!-- might add switch for sex changing icon depending of attribute value -->
+                    <div class="item">
+                        <div>
+                            <!--
+                            set the icon to be set vertically
+                            https://stackoverflow.com/questions/19124255/center-icon-in-a-div-horizontally-and-vertically
+                            -->
+                            <i class="fa fa-venus-mars" style="font-size:36px;"></i>
+                        </div>
+                        <div class="value-div">
+                            <p class="top-value">Sex</p>
+                            <p class="bot-value" th:text="${user.sex}"></p>
+                        </div>
+                    </div>
+                    <!--<p th:text="${user.sex}"></p>
+                    <p th:text="${user.age}"></p>
+                    <p th:text="${user.email}"></p>
+                    <p th:text="${user.mobile}"></p>
+                    <p th:text="${user.fullUserName}"></p>
+                    <p th:text="${user.nickname}"></p>-->
                 </div>
             </div>
-
         </div>
-
-    </th:block>
+        <div class="usercols col-sm-5 col-md-5 col-lg-5">
+            <div class="shadow p-3 mb-5 bg-white rounded">Actions</div>
+        </div>
+        <div class="offset-sm-1 offset-md-1 offset-lg-1"></div>
+    </div>
 </div>
 
 <footer class="page-footer font-small for-footer text-center updowncolors">

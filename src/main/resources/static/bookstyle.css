@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat')
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Permanent+Marker|Cinzel:700|Kalam|Tinos');
 
 .credentials {
     height: 50px;
@@ -29,7 +29,7 @@
 .socialtitle{
     padding-top: 15px;
     font-size: 22px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Code Pro', monospace;
 }
 
 .fixed-margins {
@@ -62,7 +62,7 @@ table {
 }
 
 #main-content {
-    padding: 40px 0px 40px 0px;
+    padding: 140px 0px 40px 0px;
 }
 
 nav {
@@ -109,13 +109,19 @@ nav {
 }
 
 .title {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 8px;
+    padding-bottom: 1px;
     margin: 0;
+    /*font-family: 'Permanent Marker', cursive;*/
+    /*font-family: 'Kalam', cursive;*/
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
 }
 
 .author {
     padding-bottom: 5px;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 14px;
 }
 
 .body-color {
@@ -138,3 +144,55 @@ nav {
 .dtofields {
     display: inline !important;
 }
+
+html, body {
+  height: 100%;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow:auto; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+  position: relative;
+  margin-top: -150px; /* negative value of footer height */
+  height: 150px;
+  clear:both;
+}
+
+.usercols {
+    margin: 50px 0px 0px 0px;
+    padding: 0px 10px 0px 10px;
+}
+
+.photo-scale {
+    height: 150px;
+    width: 150px;
+}
+
+.photo-subtitle {
+    margin: 8px 0px 8px 0px;
+}
+
+.item {
+    display: flex;
+}
+
+.value-div {
+    display: block;
+}
+
+.top-value {
+    margin: 5px 0px 2px 5px;
+}
+
+.bot-value {
+    margin: 1px 0px 5px 5px;
+}
+
+
+

@@ -1,6 +1,5 @@
 package com.bookstore.entities;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnCloudPlatform;
 
 import javax.persistence.*;
 
@@ -21,9 +20,6 @@ public class OwnedBook {
 
     @Column(name = "price")
     private float price;
-
-    @Column(name = "avaliability")
-    private int avaliability;
 
     @Column(name = "pages")
     private int pages;
@@ -68,14 +64,6 @@ public class OwnedBook {
         this.price = price;
     }
 
-    public int getAvaliability() {
-        return avaliability;
-    }
-
-    public void setAvaliability(int avaliability) {
-        this.avaliability = avaliability;
-    }
-
     public int getPages() {
         return pages;
     }
@@ -107,7 +95,6 @@ public class OwnedBook {
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", price=" + price +
-                ", avaliability=" + avaliability +
                 ", pages=" + pages +
                 ", publication_date=" + publication_date +
                 ", cover='" + cover + '\'' +

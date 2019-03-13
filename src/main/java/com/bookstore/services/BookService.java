@@ -17,15 +17,21 @@ public class BookService {
     private BookRepository bookRepository;
 
     public OwnedBook getSpecificBook(int id){
-        OwnedBook person = bookRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
-        return person;
+        OwnedBook book = bookRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid book Id:" + id));
+        book.setTitle(addTitleQuotes(book.getTitle()));
+        return book;
+    }
+
+    public String addTitleQuotes(String currentTitle){
+        return ("\"" + currentTitle + "\"");
     }
 
     public List<BookDTO> getAllBooksDTO(ModelMapper modelMapper){
         List<OwnedBook> books = bookRepository.findAll();
         List<BookDTO> limitedBooks = new ArrayList<>();
         for (OwnedBook book : books) {
+            book.setTitle(addTitleQuotes(book.getTitle()));
             limitedBooks.add(modelMapper.map(book,BookDTO.class));
         }
         return limitedBooks;

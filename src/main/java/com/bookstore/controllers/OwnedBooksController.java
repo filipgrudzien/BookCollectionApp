@@ -29,6 +29,7 @@ public class OwnedBooksController {
     public String showDetailedBook(@PathVariable int id, Model model){
         OwnedBook detailedBook = bookService.getSpecificBook(id);
         model.addAttribute("book", detailedBook);
+        System.out.println(detailedBook);
         return "detail-view";
     }
 }
