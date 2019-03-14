@@ -1,0 +1,131 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="/bookstyle.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>store-page</title>
+</head>
+<body class="body-color">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">My Books</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/}">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/collection/simpleall}">My books</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/tobuy/simpleall}">To-buy list</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/user/profile}">My profile</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="offset-sm-2 offset-md-2 offset-lg-2"></div>
+        <div class="usercols col-sm-8 col-md-8 col-lg-8">
+            <div class="gradient userboxes shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="action-margin text-center">
+                    <p class="action-subtitles">Edit profile:</p>
+                </div>
+                <div class="input-group text-center">
+                <form action="#" th:action="@{/update/{id}(id=${user.id})}" th:object="${user}" method="post">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Full name</span>
+                                </div>
+                                <input type="text" class="form-control" th:field="*{fullUserName}">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Nickname</span>
+                                </div>
+                                <input type="text" class="form-control" th:field="*{nickname}">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Age</span>
+                                </div>
+                                <input type="text" class="form-control" th:field="*{age}">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Email</span>
+                                </div>
+                                <input type="text" class="form-control" th:field="*{email}">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Nationality</span>
+                                </div>
+                                <input type="text" class="form-control" th:field="*{nationality}">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Mobile</span>
+                                </div>
+                                <input type="text" class="form-control" th:field="*{mobile}">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Photo URL</span>
+                                </div>
+                                <input type="text" class="form-control" th:field="*{photo}">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text">Sex</label>
+                                </div>
+                                <select class="custom-select">
+                                    <option selected>Pick...</option>
+                                    <option value="male">male</option>
+                                    <option value="female">female</option>
+                                </select>
+                            </div>
+                       <input class="btn btn-primary" type="submit" value="Update">
+                </form>
+                </div>
+            </div>
+        </div>
+        <div class="offset-sm-2 offset-md-2 offset-lg-2"></div>
+    </div>
+</div>
+
+<footer class="page-footer font-small for-footer text-center updowncolors">
+    <div class="text-center centred-content">
+        <p class="footer-font socialtitle">Social media links:</p>
+        <a class="btn-lg btn-so social" type="button" role="button"
+           href="https://stackoverflow.com/users/4930803/thecember"><i
+                class="for-buttons fab fa-stack-overflow"></i></a>
+        <a class="btn-lg btn-git social" type="button" role="button" href="https://github.com/theCember"><i
+                class="for-buttons fab fa-github"></i></a>
+        <a class="btn-lg btn-li social" type="button" role="button" href="http://www.linkedin.com/in/filip-grudzien"><i
+                class="for-buttons fab fa-linkedin-in"></i></a>
+    </div>
+    <div class="footer-copyright text-center py-3">
+        <p class="footer-font">© 2019 Copyright: Filip Grudzień.</p>
+    </div>
+</footer>
+
+</body>
+</html>

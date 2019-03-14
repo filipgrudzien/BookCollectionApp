@@ -19,14 +19,23 @@ public class UserService {
         return user;
     }
 
-    /* Hard coded example, current scenario considers only one user
-       without option to add more users */
     public User getFirstUser(){
         int id = 1;
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
         user.formatMobileNumber();
         return user;
+    }
+
+    public User getSpecificUser(int id){
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+        user.formatMobileNumber();
+        return user;
+    }
+
+    public void updateUser(User user){
+        userRepository.save(user);
     }
 
     public List<User> getAllUsers(){

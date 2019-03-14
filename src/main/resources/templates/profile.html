@@ -56,8 +56,6 @@
                             <i class="shadowed fa fa-venus-mars" style="font-size: 25px;"></i>
                         </div>
                         <div class="Col MiddleCenterValues">
-                            <p class="top-value">SEX</p>
-                            <p class="bot-value" th:text="${user.sex}"></p>
                         </div>
                     </div>
                     <div class="Row">
@@ -106,28 +104,9 @@
                     <p class="action-subtitles">User</p>
                     <p class="action-subtitles">actions:</p>
                 </div>
-                <!--
-                <div class="action-margin text-center">
-                    <a class="action-links" th:href="@{/}">Edit profile</a>
-                    <a class="action-links" th:href="@{/}">Manage owned books</a>
-                    <a class="action-links" th:href="@{/}">Manage to-buy books</a>
-                </div>
-
-                <a class="action-links" th:href="@{/}">Edit profile</a>
-                    <a class="action-links" th:href="@{/}">Manage owned books</a>
-                    <a class="action-links" th:href="@{/}">Manage to-buy books</a>
-                    <ul class="list-group possibilities">
-                        <li class="list-group-item">Manage books owned by You</li>
-                        <li class="list-group-item">Set books that You desire to buy or read</li>
-                        <li class="list-group-item">Browse your books by categories</li>
-                        <li class="list-group-item">Say some words about yourself</li>
-                    </ul>
-
-                -->
-
                 <div class="action-margin text-center">
                     <div class="action-btn-div btn-group-vertical" role="group">
-                        <button type="button" class="actionbutton btn-lg btn-floating btn"><a class="link-color" th:href="@{/}">Edit profile</a></button>
+                        <button type="button" class="actionbutton btn-lg btn-floating btn"><a class="link-color" th:href="@{editprofile/{id}(id=${user.id})}">Edit profile</a></button>
                         <button type="button" class="actionbutton btn-lg btn-floating btn"><a class="link-color" th:href="@{/}">Manage owned books</a></button>
                         <button type="button" class="actionbutton btn-lg btn-floating btn"><a class="link-color" th:href="@{/}">Manage to-buy books</a></button>
                     </div>

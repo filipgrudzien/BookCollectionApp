@@ -302,3 +302,7 @@ html, body {
 .shadowed {
     text-shadow: 1px 1px 1px black;
 }
+
+.editlabel {
+    width: 80px !important;
+}
