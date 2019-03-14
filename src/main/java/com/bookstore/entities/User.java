@@ -29,6 +29,8 @@ public class User {
     @Column(name = "mobile")
     private int mobile;
 
+    private String formatted_mobile;
+
     @Column(name = "age")
     private int age;
 
@@ -38,7 +40,16 @@ public class User {
     @Column(name = "photo")
     private String photo;
 
-    public User() {}
+    public User() {
+    }
+
+    public String getFormatted_mobile() {
+        return formatted_mobile;
+    }
+
+    public void setFormatted_mobile(String formatted_mobile) {
+        this.formatted_mobile = formatted_mobile;
+    }
 
     public int getId() {
         return id;
@@ -112,6 +123,15 @@ public class User {
         this.photo = photo;
     }
 
+    public String insertHyphens(String castedMobile) {
+        return (castedMobile.substring(0, 3) + "-" + castedMobile.substring(3, 6) + "-" + castedMobile.substring(6));
+    }
+
+    public void formatMobileNumber() {
+        String castedMobile = Integer.toString(this.mobile);
+        this.setFormatted_mobile(insertHyphens(castedMobile));
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -121,6 +141,7 @@ public class User {
                 ", nationality='" + nationality + '\'' +
                 ", email='" + email + '\'' +
                 ", mobile=" + mobile +
+                ", formatted_mobile='" + formatted_mobile + '\'' +
                 ", age=" + age +
                 ", sex='" + sex + '\'' +
                 ", photo='" + photo + '\'' +

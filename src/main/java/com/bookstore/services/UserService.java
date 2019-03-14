@@ -25,6 +25,7 @@ public class UserService {
         int id = 1;
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+        user.formatMobileNumber();
         return user;
     }
 

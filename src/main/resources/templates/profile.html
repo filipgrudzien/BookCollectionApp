@@ -43,37 +43,97 @@
     <div class="row justify-content-center">
         <div class="offset-sm-1 offset-md-1 offset-lg-1"></div>
         <div class="usercols col-sm-5 col-md-5 col-lg-5">
-            <div th:object="${user}" class="shadow p-3 mb-5 bg-white rounded">
-                <div class="text-center">
-                    <img th:src="${user.photo}" class="photo-scale rounded-circle">
-                    <p th:text="${user.nationality}" class="photo-subtitle"></p>
+            <div th:object="${user}" class="gradient userboxes shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="photo-margin text-center">
+                    <img th:src="${user.photo}" class="shadowed photo-scale rounded-circle">
+                    <p th:text="${user.fullUserName}" class="fullname photo-subtitle"></p>
+                    <p th:text="${user.nickname}" class="nick photo-subtitle2"></p>
                 </div>
-                <div class="items">
-                    <!-- might add switch for sex changing icon depending of attribute value -->
-                    <div class="item">
-                        <div>
-                            <!--
-                            set the icon to be set vertically
-                            https://stackoverflow.com/questions/19124255/center-icon-in-a-div-horizontally-and-vertically
-                            -->
-                            <i class="fa fa-venus-mars" style="font-size:36px;"></i>
+
+
+                    <div class="Row">
+                        <div class="icon-div-fix Col MiddleCenter">
+                            <i class="shadowed fa fa-venus-mars" style="font-size: 25px;"></i>
                         </div>
-                        <div class="value-div">
-                            <p class="top-value">Sex</p>
+                        <div class="Col MiddleCenterValues">
+                            <p class="top-value">SEX</p>
                             <p class="bot-value" th:text="${user.sex}"></p>
                         </div>
                     </div>
-                    <!--<p th:text="${user.sex}"></p>
-                    <p th:text="${user.age}"></p>
-                    <p th:text="${user.email}"></p>
-                    <p th:text="${user.mobile}"></p>
-                    <p th:text="${user.fullUserName}"></p>
-                    <p th:text="${user.nickname}"></p>-->
-                </div>
+                    <div class="Row">
+                        <div class="icon-div-fix Col MiddleCenter">
+                            <i class="shadowed fas fa-birthday-cake" style="font-size: 25px;"></i>
+                        </div>
+                        <div class="Col MiddleCenterValues">
+                            <p class="top-value">AGE</p>
+                            <p class="bot-value" th:text="${user.age}"></p>
+                        </div>
+                    </div>
+                    <div class="Row">
+                        <div class="icon-div-fix Col MiddleCenter">
+                            <i class="shadowed fas fa-envelope" style="font-size: 25px;"></i>
+                        </div>
+                        <div class="Col MiddleCenterValues">
+                            <p class="top-value">EMAIL</p>
+                            <p class="bot-value" th:text="${user.email}"></p>
+                        </div>
+                    </div>
+                    <div class="Row">
+                        <div class="icon-div-fix Col MiddleCenter">
+                            <i class="shadowed fas fa-mobile" style="font-size: 25px;"></i>
+                        </div>
+                        <div class="Col MiddleCenterValues">
+                            <p class="top-value">MOBILE</p>
+                            <p class="bot-value" th:text="${user.formatted_mobile}"></p>
+                        </div>
+                    </div>
+                    <div class="Row">
+                        <div class="icon-div-fix Col MiddleCenter">
+                            <i class="shadowed fas fa-flag" style="font-size: 25px;"></i>
+                        </div>
+                        <div class="Col MiddleCenterValues">
+                            <p class="top-value">HOMELAND</p>
+                            <p class="bot-value" th:text="${user.nationality}"></p>
+                        </div>
+                    </div>
+
+
             </div>
         </div>
         <div class="usercols col-sm-5 col-md-5 col-lg-5">
-            <div class="shadow p-3 mb-5 bg-white rounded">Actions</div>
+            <div class="gradient2 userboxes shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="action-margin text-center">
+                    <p class="action-subtitles">User</p>
+                    <p class="action-subtitles">actions:</p>
+                </div>
+                <!--
+                <div class="action-margin text-center">
+                    <a class="action-links" th:href="@{/}">Edit profile</a>
+                    <a class="action-links" th:href="@{/}">Manage owned books</a>
+                    <a class="action-links" th:href="@{/}">Manage to-buy books</a>
+                </div>
+
+                <a class="action-links" th:href="@{/}">Edit profile</a>
+                    <a class="action-links" th:href="@{/}">Manage owned books</a>
+                    <a class="action-links" th:href="@{/}">Manage to-buy books</a>
+                    <ul class="list-group possibilities">
+                        <li class="list-group-item">Manage books owned by You</li>
+                        <li class="list-group-item">Set books that You desire to buy or read</li>
+                        <li class="list-group-item">Browse your books by categories</li>
+                        <li class="list-group-item">Say some words about yourself</li>
+                    </ul>
+
+                -->
+
+                <div class="action-margin text-center">
+                    <div class="action-btn-div btn-group-vertical" role="group">
+                        <button type="button" class="actionbutton btn-lg btn-floating btn"><a class="link-color" th:href="@{/}">Edit profile</a></button>
+                        <button type="button" class="actionbutton btn-lg btn-floating btn"><a class="link-color" th:href="@{/}">Manage owned books</a></button>
+                        <button type="button" class="actionbutton btn-lg btn-floating btn"><a class="link-color" th:href="@{/}">Manage to-buy books</a></button>
+                    </div>
+                </div>
+
+            </div>
         </div>
         <div class="offset-sm-1 offset-md-1 offset-lg-1"></div>
     </div>

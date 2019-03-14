@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Permanent+Marker|Cinzel:700|Kalam|Tinos');
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Permanent+Marker|Cinzel:700|Kalam|Tinos|Varela+Round');
 
 .credentials {
     height: 50px;
@@ -169,13 +169,22 @@ html, body {
     padding: 0px 10px 0px 10px;
 }
 
+.userboxes {
+    height: 560px;
+    color: white;
+}
+
 .photo-scale {
     height: 150px;
     width: 150px;
 }
 
 .photo-subtitle {
-    margin: 8px 0px 8px 0px;
+    margin: 8px 0px 0px 0px;
+}
+
+.photo-subtitle2 {
+    margin: 0px 0px 5px 0px;
 }
 
 .item {
@@ -187,12 +196,109 @@ html, body {
 }
 
 .top-value {
-    margin: 5px 0px 2px 5px;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 11px;
+    margin: 5px 0px 0px 15px;
+    white-space: nowrap;
+    font-weight: bold;
 }
 
 .bot-value {
-    margin: 1px 0px 5px 5px;
+    margin: 0px 0px 5px 15px;
+    font-size: 15px;
+    font-family: 'Source Code Pro', monospace;
 }
 
+.Row {
+    display: table;
+}
 
+.icon-div-fix {
+    width: 30px;
+    margin: 0px 0px 0px 20px;
+}
 
+.Col {
+    height: 60px;
+	display: table-cell;
+}
+
+.MiddleCenter {
+	text-align: center;
+	align-items: center;
+	vertical-align: middle;
+}
+
+.MiddleCenterValues {
+	text-align: left;
+	align-items: center;
+	vertical-align: middle;
+}
+
+.nick {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 15px;
+}
+
+.fullname {
+    font-size: 18px;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: bold;
+}
+
+.gradient {
+    background: linear-gradient(#e66465, #5CB3FF);
+}
+
+.gradient2 {
+    background: linear-gradient(#5CB3FF, #e66465);
+}
+
+.photo-margin {
+    margin: 10px 0px 10px 0px;
+}
+
+.action-margin {
+    margin: 30px 0px 10px 0px;
+}
+
+.action-subtitles {
+    font-size: 40px;
+    font-family: 'Varela Round', sans-serif;
+    margin: 0px;
+    font-weight: bold;
+    display: block;
+}
+
+.action-links {
+    font-size: 30px;
+    font-family: 'Varela Round', sans-serif;
+    margin: 10px 0px 10px 0px;
+    font-weight: bold;
+}
+
+.actionbutton {
+    color: #ffffff !important;
+    background: #ffa31a !important;
+    margin: 30px 0px 20px 0px;
+    padding: 8px 4px 8px 4px;
+    font-family: 'Varela Round', sans-serif;
+    opacity: 0.9;
+}
+
+.actionbutton:hover {
+    background: #ffb84d !important;
+    opacity: 0.75;
+}
+
+.link-color {
+    color: #ffffff !important;
+}
+
+.action-btn-div {
+    margin-top: 18px;
+}
+
+.shadowed {
+    text-shadow: 1px 1px 1px black;
+}
