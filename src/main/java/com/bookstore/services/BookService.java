@@ -1,7 +1,7 @@
 package com.bookstore.services;
 
 import com.bookstore.DTO.BookDTO;
-import com.bookstore.entities.OwnedBook;
+import com.bookstore.entities.Book;
 import com.bookstore.repositories.BookRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +16,8 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    public OwnedBook getSpecificBook(int id){
-        OwnedBook book = bookRepository.findById(id)
+    public Book getSpecificBook(int id){
+        Book book = bookRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid book Id:" + id));
         book.setTitle(addTitleQuotes(book.getTitle()));
         return book;
@@ -27,17 +27,35 @@ public class BookService {
         return ("\"" + currentTitle + "\"");
     }
 
-    public List<BookDTO> getAllBooksDTO(ModelMapper modelMapper){
-        List<OwnedBook> books = bookRepository.findAll();
+    public List<BookDTO> getAllOwnedBooksDTO(ModelMapper modelMapper){
+        List<Book> books = getAllOwnedBooks();
         List<BookDTO> limitedBooks = new ArrayList<>();
-        for (OwnedBook book : books) {
+        for (Book book : books) {
             book.setTitle(addTitleQuotes(book.getTitle()));
             limitedBooks.add(modelMapper.map(book,BookDTO.class));
         }
         return limitedBooks;
     }
 
-    public List<OwnedBook> getAllBooks(){
+    public List<BookDTO> getAllToBuyBooksDTO(ModelMapper modelMapper){
+        List<Book> books = getAllToBuyBooks();
+        List<BookDTO> limitedBooks = new ArrayList<>();
+        for (Book book : books) {
+            book.setTitle(addTitleQuotes(book.getTitle()));
+            limitedBooks.add(modelMapper.map(book,BookDTO.class));
+        }
+        return limitedBooks;
+    }
+
+    public List<Book> getAllBooks(){
         return bookRepository.findAll();
+    }
+
+    public List<Book> getAllOwnedBooks(){
+        return bookRepository.findByStatus("owned");
+    }
+
+    public List<Book> getAllToBuyBooks(){
+        return bookRepository.findByStatus("to-buy");
     }
 }

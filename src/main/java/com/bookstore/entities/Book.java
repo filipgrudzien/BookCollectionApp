@@ -2,10 +2,13 @@ package com.bookstore.entities;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "book")
-public class OwnedBook {
+public class Book {
 
     @Id
     @Column(name = "id")
@@ -30,7 +33,13 @@ public class OwnedBook {
     @Column(name = "cover")
     private String cover;
 
-    public OwnedBook() {}
+    @NotNull(message = "Status cannot be null!")
+    @NotEmpty(message = "Status cannot be blank!")
+    @Pattern(regexp = "owned|to-buy", message = "Two values are acceptable \'owned\' or \'to-buy\'")
+    @Column(name = "status")
+    private String status;
+
+    public Book() {}
 
     public int getId() {
         return id;
@@ -80,6 +89,14 @@ public class OwnedBook {
         this.publication_date = publication_date;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getCover() {
         return cover;
     }
@@ -90,7 +107,7 @@ public class OwnedBook {
 
     @Override
     public String toString() {
-        return "OwnedBook{" +
+        return "Book{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
@@ -98,6 +115,7 @@ public class OwnedBook {
                 ", pages=" + pages +
                 ", publication_date=" + publication_date +
                 ", cover='" + cover + '\'' +
+                ", status='" + status + '\'' +
                 '}';
     }
 }

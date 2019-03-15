@@ -30,17 +30,22 @@
                 <a class="nav-link" th:href="@{/collection/simpleall}">My books</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/tobuy/simpleall}">To-buy list</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" th:href="@{/user/profile}">My profile</a>
             </li>
         </ul>
     </div>
 </nav>
 
-<div class="container view-margin">
-    <th:block th:with="partitions=${T(org.apache.commons.collections4.ListUtils).partition(books, 3)}">
+<div class="container top-view-margin">
+    <div class="row">
+        <div class="offset-sm-3 offset-md-3 offset-lg-3"></div>
+        <div class="section-margins text-center col-sm-6 col-md-6 col-lg-6">
+            <p class="main-book-title">Owned books</p>
+        </div>
+        <div class="offset-sm-3 offset-md-3 offset-lg-3"></div>
+    </div>
+    <div class="insider shadow-lg rounded">
+    <th:block class="shadow-lg bg-white rounded" th:with="partitions=${T(org.apache.commons.collections4.ListUtils).partition(ownedbooks, 3)}">
 
         <div class="row" th:each="partition: ${partitions}">
 
@@ -55,6 +60,34 @@
         </div>
 
     </th:block>
+    </div>
+</div>
+
+<div class="container bottom-view-margin">
+    <div class="row">
+        <div class="offset-sm-3 offset-md-3 offset-lg-3"></div>
+        <div class="section-margins text-center col-sm-6 col-md-6 col-lg-6">
+            <p class="main-book-title">To-buy books</p>
+        </div>
+        <div class="offset-sm-3 offset-md-3 offset-lg-3"></div>
+    </div>
+    <div class="insider shadow-lg rounded">
+        <th:block th:with="partitions=${T(org.apache.commons.collections4.ListUtils).partition(tobuybooks, 3)}">
+
+            <div class="row" th:each="partition: ${partitions}">
+
+                <div class="blok text-center col-sm-4 col-md-4 col-lg-4 col-centered" th:each="book: ${partition}">
+                    <div class="thumbnail">
+                        <a th:href="@{detailed/{id}(id=${book.id})}"><img th:src="${book.cover}"/></a>
+                        <p class="title" th:text="${book.title}"></p>
+                        <p class="author" th:text="${book.author}"></p>
+                    </div>
+                </div>
+
+            </div>
+
+        </th:block>
+    </div>
 </div>
 
 <footer class="page-footer font-small for-footer text-center updowncolors">

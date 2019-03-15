@@ -58,7 +58,6 @@ table {
 
 .possibilities {
     list-style-type: none;
-    padding-top: 15px;
 }
 
 #main-content {
@@ -136,9 +135,14 @@ nav {
     color: white;
 }
 
-.view-margin {
+.top-view-margin {
     margin-top: 50px;
     margin-bottom: 15px;
+}
+
+.bottom-view-margin {
+    margin-top: 20px;
+    margin-bottom: 25px;
 }
 
 .dtofields {
@@ -171,6 +175,11 @@ html, body {
 
 .userboxes {
     height: 560px;
+    color: white;
+}
+
+.editbox {
+    /*height: 600px;*/
     color: white;
 }
 
@@ -254,6 +263,11 @@ html, body {
     background: linear-gradient(#5CB3FF, #e66465);
 }
 
+.gradient3 {
+    background: linear-gradient(#fff700, #5CB3FF);
+}
+
+
 .photo-margin {
     margin: 10px 0px 10px 0px;
 }
@@ -279,7 +293,7 @@ html, body {
 
 .actionbutton {
     color: #ffffff !important;
-    background: #ffa31a !important;
+    background: #5CB3FF !important;
     margin: 30px 0px 20px 0px;
     padding: 8px 4px 8px 4px;
     font-family: 'Varela Round', sans-serif;
@@ -287,7 +301,7 @@ html, body {
 }
 
 .actionbutton:hover {
-    background: #ffb84d !important;
+    background: #5CB3FF !important;
     opacity: 0.75;
 }
 
@@ -305,4 +319,61 @@ html, body {
 
 .editlabel {
     width: 80px !important;
+}
+
+.form-field {
+    margin: 0 auto;
+    position: relative;
+}
+
+.action-margin {
+    margin: 30px 0px 10px 0px;
+}
+
+.edit-margin {
+    margin: 15px 0px 20px 0px;
+}
+
+.updatebutton {
+    background: #e66465 !important;
+}
+
+.validators {
+    background: #e66465;
+}
+
+.main-book-title {
+    margin: 0 auto;
+    padding: 15px 0px 15px 0px;
+    font-family: 'Cinzel', serif;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.section-margins {
+    margin-bottom: 15px;
+}
+
+.insider {
+    background: #d0d3cf;
+    padding-top: 38px;
+    margin: 15px;
+}
+
+.index-insider {
+    background: #d0d3cf;
+    padding: 15px;
+}
+
+.main-menu-panels {
+    padding: 15px;
+    font-size: 22px;
+}
+
+.bot-margin {
+    margin-bottom: 30px;
+}
+
+.index-title {
+    font-size: 40px;
 }

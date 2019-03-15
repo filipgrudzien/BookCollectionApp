@@ -1,42 +1,60 @@
 package com.bookstore.entities;
 
+import org.hibernate.validator.constraints.URL;
+
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "user")
 public class User {
 
     @Id
+    @NotNull
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @NotNull(message = "Nickname cannot be blank!")
+    @Size(min=4, max=20, message = "Nickname size has to be in range <4,20>")
     @Column(name = "nickname")
     private String nickname;
 
+    @NotNull(message = "Full name cannot be blank!")
+    @Size(min=5, max=35, message = "Full name size has to be in range <5,35>")
     @Column(name = "fullname")
     private String fullUserName;
 
+    @NotNull(message = "Nationality cannot be null!")
+    @NotEmpty(message = "Photo URL cannot be blank!")
     @Column(name = "nationality")
     private String nationality;
 
+    @NotNull(message = "Email cannot be blank!")
+    @Email(message = "Email has wrong format")
     @Column(name = "email")
     private String email;
 
-    /*might consider adding helper field that make
-   string of mobile in format like xxx-xxx-xxx,
-   or it might be done on the fly */
+    @NotNull(message = "Mobile number cannot be blank!")
+    @Pattern(regexp="(^$|[0-9]{9})", message = "Mobile needs to contain exactly 9 digits")
     @Column(name = "mobile")
-    private int mobile;
+    private String mobile;
 
     private String formatted_mobile;
 
+    @NotNull(message = "Age cannot be blank!")
+    @Min(value = 1, message = "Minimum age is 1")
     @Column(name = "age")
     private int age;
 
+    @NotNull(message = "Gender cannot be blank!")
+    @Pattern(regexp = "male|female", message = "Two values are acceptable \'male\' or \'female\'")
     @Column(name = "sex")
     private String sex;
 
+    @NotNull(message = "Photo URL cannot be null!")
+    @NotEmpty(message = "Photo URL cannot be blank!")
+    @URL(message = "Wrong URL format")
     @Column(name = "photo")
     private String photo;
 
@@ -91,11 +109,11 @@ public class User {
         this.email = email;
     }
 
-    public int getMobile() {
+    public String getMobile() {
         return mobile;
     }
 
-    public void setMobile(int mobile) {
+    public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 
@@ -128,8 +146,7 @@ public class User {
     }
 
     public void formatMobileNumber() {
-        String castedMobile = Integer.toString(this.mobile);
-        this.setFormatted_mobile(insertHyphens(castedMobile));
+        this.setFormatted_mobile(insertHyphens(this.mobile));
     }
 
     @Override
@@ -140,7 +157,7 @@ public class User {
                 ", fullUserName='" + fullUserName + '\'' +
                 ", nationality='" + nationality + '\'' +
                 ", email='" + email + '\'' +
-                ", mobile=" + mobile +
+                ", mobile='" + mobile + '\'' +
                 ", formatted_mobile='" + formatted_mobile + '\'' +
                 ", age=" + age +
                 ", sex='" + sex + '\'' +

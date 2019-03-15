@@ -29,9 +29,6 @@
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/collection/simpleall}">My books</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/tobuy/simpleall}">To-buy list</a>
-            </li>
             <li class="nav-item active">
                 <a class="nav-link" th:href="@{/user/profile}">My profile</a>
             </li>
@@ -56,6 +53,8 @@
                             <i class="shadowed fa fa-venus-mars" style="font-size: 25px;"></i>
                         </div>
                         <div class="Col MiddleCenterValues">
+                            <p class="top-value">GENDER</p>
+                            <p class="bot-value" th:text="${user.sex}"></p>
                         </div>
                     </div>
                     <div class="Row">

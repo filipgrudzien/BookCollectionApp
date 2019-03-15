@@ -31,9 +31,6 @@
                 <a class="nav-link" th:href="@{/collection/simpleall}">My books</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/tobuy/simpleall}">To-buy list</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" th:href="@{/user/profile}">My profile</a>
             </li>
         </ul>
@@ -44,66 +41,115 @@
     <div class="row justify-content-center">
         <div class="offset-sm-2 offset-md-2 offset-lg-2"></div>
         <div class="usercols col-sm-8 col-md-8 col-lg-8">
-            <div class="gradient userboxes shadow-lg p-3 mb-5 bg-white rounded">
-                <div class="action-margin text-center">
+            <div class="gradient3 editbox shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="edit-margin text-center">
                     <p class="action-subtitles">Edit profile:</p>
                 </div>
                 <div class="input-group text-center">
-                <form action="#" th:action="@{/update/{id}(id=${user.id})}" th:object="${user}" method="post">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Full name</span>
+                    <form action="#" th:action="@{/user/update/{id}(id=${user.id})}" class="form-field" th:object="${user}" method="post">
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Full name</span>
+                                    </div>
+                                    <input type="text" class="form-control" th:field="*{fullUserName}">
                                 </div>
-                                <input type="text" class="form-control" th:field="*{fullUserName}">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Nickname</span>
+
+                                <div class="validators rounded">
+                                    <p th:if="${#fields.hasErrors('fullUserName')}" th:errors="*{fullUserName}">Full name error</p>
                                 </div>
-                                <input type="text" class="form-control" th:field="*{nickname}">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Age</span>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Nickname</span>
+                                    </div>
+                                    <input type="text" class="form-control" th:field="*{nickname}">
                                 </div>
-                                <input type="text" class="form-control" th:field="*{age}">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Email</span>
+
+                                <div class="validators rounded">
+                                    <p th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}">Nickname error</p>
                                 </div>
-                                <input type="text" class="form-control" th:field="*{email}">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Nationality</span>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Age</span>
+                                    </div>
+                                    <input type="text" class="form-control" th:field="*{age}">
                                 </div>
-                                <input type="text" class="form-control" th:field="*{nationality}">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Mobile</span>
+
+                                <div class="validators rounded">
+                                    <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</p>
                                 </div>
-                                <input type="text" class="form-control" th:field="*{mobile}">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Photo URL</span>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Email</span>
+                                    </div>
+                                    <input type="text" class="form-control" th:field="*{email}">
                                 </div>
-                                <input type="text" class="form-control" th:field="*{photo}">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <label class="input-group-text">Sex</label>
+
+                                <div class="validators rounded">
+                                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</p>
                                 </div>
-                                <select class="custom-select">
-                                    <option selected>Pick...</option>
-                                    <option value="male">male</option>
-                                    <option value="female">female</option>
-                                </select>
-                            </div>
-                       <input class="btn btn-primary" type="submit" value="Update">
-                </form>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Nationality</span>
+                                    </div>
+                                    <input type="text" class="form-control" th:field="*{nationality}">
+                                </div>
+
+                                <div class="validators rounded">
+                                    <p th:if="${#fields.hasErrors('nationality')}" th:errors="*{nationality}">Nationality error</p>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Mobile</span>
+                                    </div>
+                                    <input type="text" class="form-control" th:field="*{mobile}">
+                                </div>
+
+                                <div class="validators rounded">
+                                    <p th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}">Mobile error</p>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Photo URL</span>
+                                    </div>
+                                    <!-- default img: https://www.ateneo.edu/sites/default/files/profile-image/default-profile-picture_5.jpg -->
+                                    <input type="text" class="form-control" th:field="*{photo}">
+                                </div>
+
+                                <div class="validators rounded">
+                                    <p th:if="${#fields.hasErrors('photo')}" th:errors="*{photo}">Photo error</p>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Gender</span>
+                                    </div>
+                                    <input type="text" class="form-control" th:field="*{sex}">
+                                </div>
+
+                                <div class="validators rounded">
+                                    <p th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}">Sex error</p>
+                                </div>
+
+                                <input class="updatebutton btn btn-primary" type="submit" value="Update"/>
+
+
+                        <!--
+
+                                         <p>Name:<input type="text" th:field="*{fullUserName}"></p>
+                        <p th:if="${#fields.hasErrors('fullUserName')}" th:errors="*{fullUserName}">Full name error</p>
+                        <p><input type="text" th:field="*{nickname}"></p>
+                        <p th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}">Nickname error</p>
+                        <p><input type="submit" value="Update"></p>
+                        -->
+
+                    </form>
                 </div>
             </div>
         </div>

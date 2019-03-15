@@ -1,9 +1,7 @@
 package com.bookstore.controllers;
 
 import com.bookstore.entities.User;
-import com.bookstore.services.BookService;
 import com.bookstore.services.UserService;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,13 +24,15 @@ public class UserController {
         return "profile";
     }
 
-    @RequestMapping("editprofile/{id}")
+    @RequestMapping("/editprofile/{id}")
     public String showEditProfilePage(@PathVariable int id, Model model){
         model.addAttribute("user", userService.getSpecificUser(id));
         return "edit-profile";
     }
 
-    @RequestMapping("update/{id}")
+    //public String updatePerson(@PathVariable("id") int id, Model model, @Valid User user, Errors errors)
+
+    @RequestMapping("/update/{id}")
     public String updatePerson(@PathVariable("id") int id, Model model, @Valid User user, Errors errors) {
 
         if(errors.hasErrors()){
@@ -40,8 +40,10 @@ public class UserController {
             return "edit-profile";
         }
 
+        System.out.println(user);
         userService.updateUser(user);
-        return "index";
+
+        return "redirect:/user/profile";
     }
 
 }
