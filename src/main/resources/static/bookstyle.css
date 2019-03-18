@@ -267,6 +267,9 @@ html, body {
     background: linear-gradient(#fff700, #5CB3FF);
 }
 
+.gradient4 {
+    background: linear-gradient(#1e1e1e, #b1b2b6);
+}
 
 .photo-margin {
     margin: 10px 0px 10px 0px;
@@ -338,6 +341,10 @@ html, body {
     background: #e66465 !important;
 }
 
+.createbutton {
+    background: #e66465 !important;
+}
+
 .validators {
     background: #e66465;
 }
@@ -376,4 +383,50 @@ html, body {
 
 .index-title {
     font-size: 40px;
+}
+
+.detail-atr {
+    font-weight: bold;
+}
+
+.single-book {
+    background: #b1b2b6;
+    padding: 20px 20px 0px 20px;
+}
+
+.single-panel {
+    margin: 0px 0px 15px 0px;
+}
+
+.padded-row {
+    padding: 0px 20px 0px 20px;
+}
+
+.bookgroup {
+    margin: 0px 0px 15px 0px;
+}
+
+.whiter {
+    color: #ffffff !important;
+}
+
+.bookedit {
+    background: #00caff !important;
+}
+
+.bookdelete {
+    background: #e71837 !important;
+}
+
+.tobuttonspacer {
+    margin-bottom: 5px !important;
+}
+
+.addinginnerpanel {
+    width: 326.663px !important;
+    height: 389.2px !important;
+}
+
+.addingspace {
+    margin: auto 0px;
 }

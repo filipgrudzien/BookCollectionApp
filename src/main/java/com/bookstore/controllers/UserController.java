@@ -46,4 +46,14 @@ public class UserController {
         return "redirect:/user/profile";
     }
 
+    @RequestMapping("/ownedbooks")
+    public String redirectToOwnedBooksManager(){
+        return "redirect:/collection/ownedmanager";
+    }
+
+    @RequestMapping("/tobuybooks")
+    public String redirectToToBuyBooksManager(){
+        return "redirect:/collection/tobuymanager";
+    }
+
 }

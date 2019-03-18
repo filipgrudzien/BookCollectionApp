@@ -12,7 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>store-page</title>
+    <title>to-buy books manager</title>
 </head>
 <body class="body-color">
 
@@ -35,33 +35,6 @@
         </ul>
     </div>
 </nav>
-
-<div class="container top-view-margin">
-    <div class="row">
-        <div class="offset-sm-3 offset-md-3 offset-lg-3"></div>
-        <div class="section-margins text-center col-sm-6 col-md-6 col-lg-6">
-            <p class="main-book-title">Owned books</p>
-        </div>
-        <div class="offset-sm-3 offset-md-3 offset-lg-3"></div>
-    </div>
-    <div class="insider shadow-lg rounded">
-    <th:block class="shadow-lg bg-white rounded" th:with="partitions=${T(org.apache.commons.collections4.ListUtils).partition(ownedbooks, 3)}">
-
-        <div class="padded-row row" th:each="partition: ${partitions}">
-
-            <div class="single-panel blok text-center col-sm-4 col-md-4 col-lg-4 col-centered" th:each="book: ${partition}">
-                <div class="shadow rounded single-book thumbnail">
-                    <a th:href="@{detailed/{id}(id=${book.id})}"><img th:src="${book.cover}"/></a>
-                       <p class="title" th:text="${book.title}"></p>
-                       <p class="author" th:text="${book.author}"></p>
-                </div>
-            </div>
-
-        </div>
-
-    </th:block>
-    </div>
-</div>
 
 <div class="container bottom-view-margin">
     <div class="row">

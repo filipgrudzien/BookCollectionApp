@@ -1,10 +1,10 @@
 package com.bookstore.entities;
 
 
+import org.hibernate.validator.constraints.URL;
+
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "book")
@@ -15,21 +15,35 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @NotNull(message = "Title field cannot be null!")
+    @NotEmpty(message = "Title field cannot be blank!")
     @Column(name = "title")
     private String title;
 
+    @NotNull(message = "Author field cannot be null!")
+    @NotEmpty(message = "Author field cannot be blank!")
     @Column(name = "author")
     private String author;
 
+    @NotNull(message = "Price field cannot be null!")
+    @Min(1)
     @Column(name = "price")
     private float price;
 
+    @NotNull(message = "Pages field cannot be null!")
+    @Min(10)
     @Column(name = "pages")
     private int pages;
 
+    @NotNull(message = "Publication date cannot be null!")
+    @Min(1)
+    @Max(2019)
     @Column(name = "publication_date")
     private int publication_date;
 
+    @NotNull(message = "Cover URL cannot be null!")
+    @NotEmpty(message = "Cover URL cannot be blank!")
+    @URL(message = "Wrong URL format")
     @Column(name = "cover")
     private String cover;
 

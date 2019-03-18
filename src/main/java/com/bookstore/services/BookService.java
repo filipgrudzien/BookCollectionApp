@@ -47,6 +47,10 @@ public class BookService {
         return limitedBooks;
     }
 
+    public void addNewBook(Book book){
+        bookRepository.save(book);
+    }
+
     public List<Book> getAllBooks(){
         return bookRepository.findAll();
     }
