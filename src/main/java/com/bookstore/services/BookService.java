@@ -19,19 +19,19 @@ public class BookService {
     public Book getSpecificBook(int id){
         Book book = bookRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid book Id:" + id));
-        book.setTitle(addTitleQuotes(book.getTitle()));
+        book.setTitle(book.getTitle());
         return book;
     }
 
-    public String addTitleQuotes(String currentTitle){
-        return ("\"" + currentTitle + "\"");
+    public void deleteBook(int id){
+        bookRepository.deleteById(id);
     }
 
     public List<BookDTO> getAllOwnedBooksDTO(ModelMapper modelMapper){
         List<Book> books = getAllOwnedBooks();
         List<BookDTO> limitedBooks = new ArrayList<>();
         for (Book book : books) {
-            book.setTitle(addTitleQuotes(book.getTitle()));
+            book.setTitle(book.getTitle());
             limitedBooks.add(modelMapper.map(book,BookDTO.class));
         }
         return limitedBooks;
@@ -41,13 +41,13 @@ public class BookService {
         List<Book> books = getAllToBuyBooks();
         List<BookDTO> limitedBooks = new ArrayList<>();
         for (Book book : books) {
-            book.setTitle(addTitleQuotes(book.getTitle()));
+            book.setTitle(book.getTitle());
             limitedBooks.add(modelMapper.map(book,BookDTO.class));
         }
         return limitedBooks;
     }
 
-    public void addNewBook(Book book){
+    public void addOrUpdateBook(Book book){
         bookRepository.save(book);
     }
 

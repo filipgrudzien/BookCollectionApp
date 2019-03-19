@@ -61,8 +61,35 @@ public class BookController {
             return "add-book";
         }
 
-        bookService.addNewBook(book);
-        model.addAttribute("books", bookService.getAllOwnedBooksDTO(modelMapper));
+        bookService.addOrUpdateBook(book);
+        model.addAttribute("ownedbooks", bookService.getAllOwnedBooksDTO(modelMapper));
         return "mybooks-manager";
     }
+
+    @RequestMapping("/delete/{id}")
+    public String deleteBook(@PathVariable int id, Model model) {
+        bookService.deleteBook(id);
+        return "redirect:/collection/simpleall";
+    }
+
+    @RequestMapping(value = "/edit/{id}")
+    public String editPerson(@PathVariable int id, Model model) {
+
+        Book book = bookService.getSpecificBook(id);
+        model.addAttribute("book", book);
+        return "edit-book";
+    }
+
+    @RequestMapping(value = "/update/{id}")
+    public String updatePerson(@PathVariable("id") long id, Model model, @Valid Book book, Errors errors) {
+
+        if(errors.hasErrors()){
+            model.addAttribute("book", book);
+            return "edit-book";
+        }
+
+        bookService.addOrUpdateBook(book);
+        return "redirect:/collection/simpleall";
+    }
+
 }

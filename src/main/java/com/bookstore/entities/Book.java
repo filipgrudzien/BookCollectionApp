@@ -64,7 +64,11 @@ public class Book {
     }
 
     public String getTitle() {
-        return title;
+        return addTitleQuotes(this.title);
+    }
+
+    public String addTitleQuotes(String currentTitle){
+        return ("\"" + currentTitle + "\"");
     }
 
     public void setTitle(String title) {
