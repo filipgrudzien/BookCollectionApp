@@ -11,4 +11,3 @@ This project is Book Collection Manager App that uses technologies like:
 - Bootstrap
 - HTML and CSS
 
-App is not deployed, so data from local MySQL database will not be fetched.
